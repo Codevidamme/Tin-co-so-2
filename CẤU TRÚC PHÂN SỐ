@@ -1,25 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
-
-struct ThiSinh{
-	string name;
-	string date;
-	double p1, p2, p3;
+ll gcd (ll a, ll b){
+	if (b == 0) return a;
+	return gcd (b, a%b);
+}
+struct PhanSo{
+	ll tu, mau;
 };
-void nhap(ThiSinh &a){
-	getline(cin, a.name);
-	cin >> a.date >> a.p1 >> a.p2 >> a.p3;
-	int n = sizeof(a.date);
-	if (a.date[1] =='/') a.date.insert(0,"0");
-	if (a.date[3] =='/') a.date.insert(2,"0");
+void nhap(PhanSo &a){
+	cin >> a.tu >> a.mau;
 }
-void in(ThiSinh &a){
-	cout << a.name << " " << a.date << " " << fixed << setprecision(1) << (double)a.p1 + a.p2 + a.p3; 
+void rutgon(PhanSo &a){
+	ll x = gcd(a.tu, a.mau);
+	a.tu /= x;
+	a.mau /= x;
 }
-int main(){
-    struct ThiSinh A;
-    nhap(A);
-    in(A);
-    return 0;
+void in(PhanSo &a){
+	cout << a.tu << "/" << a.mau;
+}
+int main() {
+	struct PhanSo p;
+	nhap(p);
+	rutgon(p);
+	in(p);
+	return 0;
 }
