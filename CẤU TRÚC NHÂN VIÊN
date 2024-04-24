@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+ll gcd (ll a, ll b){
+	if (b == 0) return a;
+	return gcd (b, a%b);
+}
+struct NhanVien{
+	string name;
+	string sex, birth, place, id, date;
+};
+void nhap(NhanVien &a){
+	getline(cin, a.name);
+	cin >> a.sex >> a.birth;
+	cin.ignore();
+	getline(cin, a.place);
+	cin >> a.id >> a.date;
+	if (a.birth[1] == '/') a.birth.insert(0, "0");
+	if (a.birth[4] == '/') a.birth.insert(3, "0");
+	if (a.date[1] == '/') a.date.insert(0, "0");
+	if (a.date[4] == '/') a.date.insert(3, "0");
+}
+void in(NhanVien &a){
+	cout << "00001 " << a.name << " " << a.sex << " " << a.birth << " " << a.place << " " << a.id << " " << a.date;
+}
+int main(){
+    struct NhanVien a;
+    nhap(a);
+    in(a);
+    return 0;
+}
