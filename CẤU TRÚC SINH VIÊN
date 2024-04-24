@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+ll gcd (ll a, ll b){
+	if (b == 0) return a;
+	return gcd (b, a%b);
+}
+struct SinhVien{
+	string name;
+	string msv, date;
+	double gpa;
+};
+void nhap(SinhVien &a){
+	getline(cin, a.name);
+	cin >> a.msv >> a.date >> a.gpa;
+	int n = sizeof(a.date);
+	if (a.date[1] == '/') a.date.insert(0, "0");
+	if (a.date[4] == '/') a.date.insert(3, "0");
+}
+void in(SinhVien &a){
+	cout << "B20DCCN001 " << a.name << " " << a.msv << " " << a.date << " " << fixed << setprecision(2) << a.gpa;
+}
+int main(){
+    struct SinhVien a;
+    nhap(a);
+    in(a);
+    return 0;
+}
