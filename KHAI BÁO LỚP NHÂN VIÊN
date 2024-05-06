@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+class NhanVien{
+	private:
+		string id;
+		string name, sex, birth, place, phone, date;
+	public:
+		NhanVien(){
+			id = "00001";
+			sex = "";
+		    name = "";
+		    birth = "";
+		    place = "";
+		    phone = "";
+		    date = "";
+		}
+	friend istream & operator >> (istream & is, NhanVien & nv){
+		getline (is >> ws, nv.name);
+		is >> nv.sex;
+		getline (is >> ws, nv.birth);
+		getline (is >> ws, nv.place);
+		getline (is >> ws, nv.phone);
+		getline (is >> ws, nv.date);
+		if (nv.birth[1] == '/') nv.birth.insert(0, "0");
+		if (nv.birth[4] == '/') nv.birth.insert(3, "0");
+		if (nv.date[1] == '/') nv.date.insert(0, "0");
+		if (nv.date[4] == '/') nv.date.insert(3, "0");
+		return is;
+	}
+	friend ostream & operator >> (ostream & os, const NhanVien & nv){
+		os << nv.id << " " << nv.name << " " << nv.sex << " " << nv.birth << " " << nv.place << " " << nv.phone << " " << nv.date;
+		return os;
+	}
+};
+int main(){
+    NhanVien a;
+    cin >> a;
+    cout >> a;
+    return 0;
+}
