@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+using namespace std;
+class SinhVien {
+private:
+    string id;
+    string name;
+    string Class;
+    string birth;
+    double gpa;
+public:
+    SinhVien(){
+        id = "B20DCCN001";
+        name = "";
+        Class = "";
+        birth = "";
+        gpa = 0.0f;
+    }
+    friend istream & operator >> (istream & is, SinhVien & sv){
+        getline(is >> ws, sv.name);
+        getline(is >> ws, sv.Class);
+        getline(is >> ws, sv.birth);
+        is >> sv.gpa;
+        if (sv.birth[1] == '/') sv.birth.insert(0, "0");
+        if (sv.birth[4] == '/') sv.birth.insert(3, "0");
+        return is;
+    }
+    friend ostream & operator << (ostream & os, const SinhVien & sv){
+        os << sv.id << " ";
+        stringstream ss(sv.name);
+	    string tmp;
+      	while (ss >> tmp){
+		    if (isupper(tmp[0])) tmp[0] += 0;
+		    else tmp[0] -= 32;
+		    for (int i=1;i<tmp.size();i++){
+			    if (isupper(tmp[i])) tmp[i] += 32;
+		    }
+	        os << tmp << " ";
+	    } 
+		os << sv.Class << " " << sv.birth;
+        os << " " << fixed << setprecision(2) << sv.gpa;
+        return os;
+    }
+};
+int main(){
+    SinhVien a;
+    cin >> a;
+    cout << a;
+    return 0;
+}
