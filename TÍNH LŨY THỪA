@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std; 
+using ll = long long;
+void solve(){
+    ll x, y, p;
+ 	cin >> x >> y >> p;
+ 	ll res = 1;
+ 	for (int i=1;i<=y;i++){
+ 		res = res*x;
+ 		res = res%p;
+	}
+	cout << res << endl;
+ }
+int main(){ 
+    int t; 
+	cin >> t; 
+	while(t--){ 
+	    solve();
+	} 
+	return 0; 
+}
