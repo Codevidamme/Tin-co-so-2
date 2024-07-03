@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+void solve(){
+	freopen("DATA.in", "r", stdin);
+	int n;
+	map <int, int> mp;
+	while (cin >> n){
+		mp[n]++;
+	} 
+	for (auto it : mp){
+		cout << it.first << " " << it.second << "\n";
+	}
+}
+int main(){
+	solve();
+}
