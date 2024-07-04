@@ -1,0 +1,23 @@
+#include <bits/stdc++.h> 
+using namespace std; 
+void solve(){
+	ifstream in; 
+    in.open("DATA.in"); 
+    int m, n, x;
+    in >> m >> n;
+    map <int, int> a, b;
+	while (m--){
+		in >> x;
+		a[x]++;
+	} 
+	while (n--){
+		in >> x;
+		b[x]++;
+	}
+	for (auto it : a){
+		if (b[it.first] > 0) cout << it.first << " "; 
+	}
+}
+int main(){
+	solve();
+}
